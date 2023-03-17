@@ -1,0 +1,285 @@
+
+***********************
+Starting Test #0: Horizontal Win
+How to Play Connect Four
+
+Drop your token into a column and it will land at the bottom of the column, or on top of the stack of tokens already in that column.
+
+The objective of the game is to have four tokens in a row, whether diagonally, horizontally, or vertically.
+
+Good luck!
+
+1234567
+*******
+*******
+*******
+*******
+*******
+*PPPP**
+
+Won by horizontal 
+Congratulations: Player #P has won the game!
+Goodbye!
+Passed test #0
+
+***********************
+Starting Test #1: Vertical Win
+1234567
+*******
+**P****
+**P****
+**P****
+**P****
+*******
+
+Won by vertical 
+Passed test #1
+
+***********************
+Starting Test #2: Diagonal Down-Right Win
+1234567
+**P****
+***P***
+****P**
+*****P*
+*******
+*******
+
+Won by diagonal 
+Passed test #2
+
+***********************
+Starting Test #3: Diagonal UP-Right NOT-Win (wrong player)
+1234567
+*******
+*******
+*****Q*
+****Q**
+***Q***
+**Q****
+
+Passed test #3
+
+***********************
+Starting Test #4: Bad Move Test (nearly full board)
+1234567
+P******
+QPQPQP*
+PQQQPQ*
+PQQQPQ*
+PQPQPQ*
+QPQPQP*
+
+P's' turn!
+Your column: 1234567
+P******
+QPQPQP*
+PQQQPQ*
+PQQQPQ*
+PQPQPQ*
+QPQPQP*
+
+Passed test #4
+
+***********************
+Starting Test #5: Good Move Test (nearly full board)
+1234567
+*QPQPQ*
+QPQPQP*
+PQQQPQ*
+PQQQPQ*
+PQPQPQ*
+QPQPQP*
+
+P's' turn!
+Your column: 
+1234567
+PQPQPQ*
+QPQPQP*
+PQQQPQ*
+PQQQPQ*
+PQPQPQ*
+QPQPQP*
+
+Passed test #5
+
+***********************
+Starting Test #6: Simple Is-A-Tie Test (full board)
+1234567
+PPQQPQQ
+QQPPQQP
+QPQPPPQ
+PQQPQQP
+PQQQPPP
+QPPPQPQ
+
+Passed test #6
+
+***********************
+Starting Test #7: Complex Not-A-Tie Test (nearly full board)
+1234567
+PQPQPQQ
+*PQPQPP
+PQQQPQQ
+PQQQ*QP
+QQPQPQQ
+QPQPQPP
+
+Passed test #7
+
+***********************
+Starting Test #8: Next Player Test  - inc to 2nd player of 2 players
+1234567
+*******
+*******
+*******
+*******
+*******
+*******
+
+Passed test #8
+
+***********************
+Starting Test #9: Next Player Test  - inc to 1st player of 2 players
+1234567
+*******
+*******
+*******
+*******
+*******
+*******
+
+Passed test #9
+
+***********************
+Starting Test #10: Next Player Test  - inc to 1st player of 3 players
+1234567
+*******
+*******
+*******
+*******
+*******
+*******
+
+Passed test #10
+
+***********************
+Starting Test #11: Get Current Player Token Test  - see if the current player token is the 1st player
+1234567
+*******
+*******
+*******
+*******
+*******
+*******
+
+Passed test #11
+
+***********************
+Starting Test #12: Get Current Player Token Test  - testing 4th argument of constructor for default starting player
+1234567
+*******
+*******
+*******
+*******
+*******
+*******
+
+Passed test #12
+
+***********************
+Starting Test #13: Diagonal UP-Right NOT-Win (3 players correct player, but not a win)
+1234567
+QWQWQW*
+WPWPWPQ
+PQPQPQP
+QWQWQWW
+WPWPWPQ
+PQPQPQP
+
+Passed test #13
+
+***********************
+Starting Test #14: 3 player tie full board 
+1234567
+QWQWQWW
+WPWPWPQ
+PQPQPQP
+QWQWQWW
+WPWPWPQ
+PQPQPQP
+
+Passed test #14
+
+***********************
+Starting Test #15: Diagonal Up-Right Win
+1234567
+*******
+****P**
+***P***
+**P****
+*P*****
+*******
+
+Won by diagonal 
+Passed test #15
+
+***********************
+Starting Bonus Test #0: BONUS: Complex Is-A-Tie Test (nearly full board)
+1234567
+PPQQPQ*
+QQPPQQP
+QPQPPPQ
+PQQPQQP
+PQQQPPP
+QPPPQPQ
+
+Passed bonus test #0
+
+***********************
+Starting Bonus Test #1: BONUS: Complex Is-A-Tie Test (nearly full board)
+1234567
+PPQQPQ*
+QQPPQQ*
+QPQPPPQ
+PQQPQQP
+PQQQPPP
+QPPPQPQ
+
+Failed bonus test #1 because isTie() returned FALSE.
+
+***********************
+Starting Bonus Test #2: BONUS: Complex Is-A-Tie Test (nearly full board)
+1234567
+PPQQPQ*
+QQPPQQ*
+QPQPPPQ
+PQQPQQP
+PQQQPPP
+QPPPQPQ
+
+Failed bonus test #2 because isTie() returned FALSE.
+
+***********************
+Starting Bonus Test #3: BONUS: Complex NOT-A-Tie Test (nearly full board)
+1234567
+PPQQPQ*
+QQPPQQ*
+QPQPPP*
+P*QPQQP
+PQQQPPP
+QPPPQPQ
+
+Passed bonus test #3
+
+***********************
+Starting Bonus Test #4: BONUS: Complex NOT-A-Tie Test (nearly full board)
+1234567
+PPQQPQ*
+QQPPQQ*
+QPQPPP*
+P*QPQQ*
+PQQQPPP
+QPPPQPQ
+
+Passed bonus test #4
