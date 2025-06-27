@@ -8,8 +8,9 @@ void ConnectFour::play()
 	bool isGoodMove = false;
 	this->printInstructions(); // print instructions
 	this->printBoard();		   // print the board
+  // keep playing as long as the game is not won or tied
 	while (!this->isWin() && !this->isTie()) 
-  { // keep playing as long as the game is not won or tied
+  { 
 		isGoodMove = this->takeTurn(); // current player takes a turn
 		if (isGoodMove) 
     {
@@ -19,8 +20,8 @@ void ConnectFour::play()
 			if (this->isTie())
 				break;			// else if the game is tied, quit the game
 			this->nextPlayer(); // else, advance to the next player in the game.
-		}						// else that was an illegal move
-	}							// end while: game over
+		} // else that was an illegal move
+	}	// end while: game over
 	if (this->getWinningPlayerId() == -1)
 		std::cout << "Sorry - It looks like the game was a tie." << std::endl;
 	else
@@ -29,22 +30,29 @@ void ConnectFour::play()
 	std::cout << "Goodbye!" << std::endl;
 } // end play
 
-
-// TODO: your implementations go here
+/*
+Constructor
+Param: _emptyToken (the token used for an empty space (defaults to dash)
+Param: _playerTokens (the characters that describe the players, defaults to X and O)
+Param: _initTokens (the tokens that initialize the board for a game already in progress)
+Param: _startingPlayerId (the id of the player that goes first to start the game)
+*/
 ConnectFour::ConnectFour (char _emptyToken, std::vector<char>_playerTokens, std::vector<char> _initTokens, int _startingPlayerId) : emptyToken(_emptyToken), playerTokens(_playerTokens) 
-// the token used for an empty space (defaults to dash)
-// the characters that describe the players, defaults to X and O
-// the tokens that initialize the board for a game already in progress
-// the id of the player that goes first to start the game
 {
   currentPlayerId = _startingPlayerId;
-  int counter = 0; // counter initialized outside the loop so the board won't be filled with only the first 7 terms of _initTokens for every row
+  /*
+  Counter initialized outside the loop so the board won't be filled with only the first 7 terms of _initTokens for every row
+    */
+  int counter = 0; 
   for (int r = 0; r < this->numRows; r++) 
     {
       this->board.push_back({}); // create empty row to fill
       for (int c = 0; c < this->numCols; c++)
         {
-          if (counter < _initTokens.size()) // _initTokens represents a game in progress, so not all the spaces will be filled by _initTokens
+          /*
+          _initTokens represents a game in progress, so not all the spaces will be filled by _initToken
+          */
+          if (counter < _initTokens.size()) s
           {
             this->board[r].push_back(_initTokens[counter]);
             counter++;
@@ -65,7 +73,7 @@ ConnectFour::ConnectFour (char _emptyToken, std::vector<char>_playerTokens, std:
   }
 
 
-    void ConnectFour::printBoard() // print the board
+  void ConnectFour::printBoard() // print the board
   {
     std::cout << "1234567" << std::endl; //column labels
     for (int r = 0; r < this->numRows; r++) 
@@ -77,30 +85,32 @@ ConnectFour::ConnectFour (char _emptyToken, std::vector<char>_playerTokens, std:
     std::cout << std::endl;
   }
 
+// return the character that represents the current player
+  char ConnectFour::getCurrentPlayerToken()  
+  {
+    return playerTokens[currentPlayerId];
+  }
 
-    char ConnectFour::getCurrentPlayerToken() // return the character that represents the current player
-{
-  return playerTokens[currentPlayerId];
-}
+  // advance to the next player in the game
+  void ConnectFour::nextPlayer() 
+  {
+    currentPlayerId++;
+    currentPlayerId %= playerTokens.size();
+  }
 
-
-    void ConnectFour::nextPlayer() // advance to the next player in the game
-{
-  currentPlayerId++;
-  currentPlayerId %= playerTokens.size();
-}
-
-
-    bool ConnectFour::takeTurn()  // prompt the current human player and process their turn, returning true if it was successful
-{
+// prompt the current human player and process their turn, returning true if it was successful
+  bool ConnectFour::takeTurn()  
+ {
   std::cout << playerTokens[currentPlayerId] << "\'s' turn!" << std::endl;
   int playerColumn; 
   std::cout << "Your column: ";
   std::cin >> playerColumn;
-  playerColumn--; // the player sees the columns as 1-7, but the computer indexes them as 0-6
+   // decrement because the player sees the columns as 1-7, but the computer indexes them as 0-6
+  playerColumn--; 
   if (playerColumn < 0 || playerColumn > 6) // out of range
     return false;
-  for (int row = numRows - 1; row >= 0; row--) // since the token is dropped, it falls to the greatest empty row of the selected column
+   // since the token is dropped, it falls to the greatest empty row of the selected column
+  for (int row = numRows - 1; row >= 0; row--) 
     {
       if (board[row][playerColumn] == emptyToken) // slot is not taken by another token
       {
@@ -112,8 +122,10 @@ ConnectFour::ConnectFour (char _emptyToken, std::vector<char>_playerTokens, std:
   return false; // invalid move
 }
 
-
-bool ConnectFour::isWin() // determine if the CURRENT PLAYER has won the game and update winningPlayerId to the winning player's ID
+/*
+Determine if the CURRENT PLAYER has won the game and update winningPlayerId to the winning player's ID.
+  */
+bool ConnectFour::isWin() 
 {
   for (int row = 0; row < 6; row++)
     {
@@ -167,18 +179,21 @@ bool ConnectFour::isWin() // determine if the CURRENT PLAYER has won the game an
 }
 
 
-
-    int ConnectFour::getWinningPlayerId() // return the value of the private winningPlayerId, as set by isWin().
+// return the value of the private winningPlayerId, as set by isWin()
+    int ConnectFour::getWinningPlayerId() 
     {
      return winningPlayerId; 
     }
 
-
-    bool ConnectFour::isTie() // determine if the game cannot be won by either player regardless of the number of moves
+  // determine if the game cannot be won by either player regardless of the number of moves
+    bool ConnectFour::isTie() 
 {
   for (int i = 0; i < numCols; i++)
     {
-      if (board[1][i] == emptyToken) // if there is still an empty space at the top of the board, then there is at least one move that can still be made
+      /*
+      If there is still an empty space at the top of the board, then there is at least one move that can still be made
+      */
+      if (board[1][i] == emptyToken) 
         return false;
     }
   return true;
