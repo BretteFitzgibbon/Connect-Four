@@ -1,108 +1,62 @@
 What This Program Does:
 
--- A game of Connect Four played by two humans (not an AI).
+An object-oriented game in C++ incorporating vectors of vectors and out-of-class implementations.
 
-What This Program Entails:
+________________________________________
 
-Object-oriented game in C++ incorporating vectors of vectors and out-of-class implementations.
+How to Build and Run:
 
-Future Directions:
 
--- Playing against an AI
+In Replit:
 
--- Detecting a tie before all tokens have been used
+1) Create an account on replit.com if you don’t have one
+
+2) Click on the REPL link above
+
+3) Remix this app
+
+4) Run
+
+5) Click on >_Console tab
+
+6) Play the game with a friend or family member!
+
+________________________________________
+
+In the Terminal:
+
+Requires C++ 17
+
+1) Go to the above GitHub link, click on Code, and copy the URL from the HTTPS tab
+
+2) In the terminal: git clone <URL>
+
+3) If you don’t have command line tools installed:
+
+xcode-select –install
+
+4) Click Install when the pop-up comes up
+
+5) Agree to the License Agreement
+
+6) Wait about 15 minutes for installation to complete
+
+7) In the terminal, navigate to the game’s directory:
+
+cd Connect-Four
+
+8) In the terminal, compile:
+
+clang++ -std=c++17 *.cpp -o Connect-Four
+
+9) Run:
+
+./Connect-Four
+
+10) Find a partner, then win.
+
+_________________________________________
 
 Note:
+— This was a homework assignment and the test suite was written by the professor.
 
--- This was a homework assignment and the test suite was written by the professor.
-
-Sample Output:
-
-This output shows a game "already in progress" (created by the **ConnectFour** constructor).
-The game shown below is between 2 players represented by an 'X' and 'Y' tokens.
-```
-Let's play Connect Four!
-Enter column number like "3" for column 3.
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
-X's turn: 1
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- X  .  .  .  .  .  .
-Y's turn: 2
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- X  Y  .  .  .  .  .
-X's turn: 2
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  .  .  .  .  .
- X  Y  .  .  .  .  .
-Y's turn: 3
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  .  .  .  .  .
- X  Y  Y  .  .  .  .
-X's turn: 3
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  X  .  .  .  .
- X  Y  Y  .  .  .  .
-Y's turn: 4
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  X  .  .  .  .
- X  Y  Y  Y  .  .  .
-X's turn: 4
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  X  X  .  .  .
- X  Y  Y  Y  .  .  .
-Y's turn: 5
- 1  2  3  4  5  6  7
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  .  .  .  .  .  .
- .  X  X  X  .  .  .
- X  Y  Y  Y  Y  .  .
-Player Y wins the game via row 6
-Congratulation: Player Y has won the game!
-Goodbye!
-```
-
-
-
-
----
-#### Copyright © 2022 by Jeff Yates
-
-All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
